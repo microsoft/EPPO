@@ -1,33 +1,32 @@
-# Project
+# Towards Applicable Reinforcement Learning: Improving the Generalization and Sample Efficiency with Policy Ensemble
+This is the experiment code for our IJCAI 2022 paper "[Towards Applicable Reinforcement Learning: Improving the Generalization and Sample Efficiency with Policy Ensemble](https://seqml.github.io/eppo/)".
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## Abstract
+> It is challenging for reinforcement learning (RL) algorithms to succeed in real-world applications like financial trading and logistic system due to the noisy observation and environment shifting between training and evaluation. Thus, it requires both high sample efficiency and generalization for resolving real-world tasks. However, directly applying typical RL algorithms can lead to poor performance in such scenarios. Considering the great performance of ensemble methods on both accuracy and generalization in supervised learning (SL), we design a robust and applicable method named Ensemble Proximal Policy Optimization (EPPO), which learns ensemble policies in an end-to-end manner. Notably, EPPO combines each policy and the policy ensemble organically and optimizes both simultaneously. In addition, EPPO adopts a diversity enhancement regularization over the policy space which helps to generalize to unseen states and promotes exploration. We theoretically prove EPPO increases exploration efficacy, and through comprehensive experimental evaluations on various tasks, we demonstrate that EPPO achieves higher efficiency and is robust for real-world applications compared with vanilla policy optimization algorithms and other ensemble methods. Code and supplemental materials are available at https://seqml.github.io/eppo.
 
-As the maintainer of this project, please make a few updates:
+## Environment Dependencies
+### Dependencies
+```
+pip install -r requirements.txt
+```
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+### Running
+Take `Pong` environment in Atari benchmarks as an example, to run EPPO, you can do the following.
+```
+python code/tools/train_on_atari.py exp/atari_local.yml
+```
 
-## Contributing
+To run EPPO-Ens, Please set the `center_policy_coef` in `exp/atari_local.yml` to 0.
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+To run EPPO-Ens, Please set the `diverse_coef` in `exp/atari_local.yml` to 0.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Trademarks
-
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+## Reference
+You are more than welcome to cite our paper:
+```
+@article{yang2022towards,
+  title={Towards Applicable Reinforcement Learning: Improving the Generalization and Sample Efficiency with Policy Ensemble},
+  author={Yang, Zhengyu and Ren, Kan and Luo, Xufang and Liu, Minghuan and Liu, Weiqing and Bian, Jiang and Zhang, Weinan and Li, Dongsheng},
+  journal={arXiv preprint arXiv:2205.09284},
+  year={2022}
+}
+```
