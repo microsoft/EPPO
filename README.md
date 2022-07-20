@@ -16,9 +16,9 @@ Take `Pong` environment in Atari benchmarks as an example, to run EPPO, you can 
 python code/tools/train_on_atari.py exp/atari_local.yml
 ```
 
-To run EPPO-Ens, Please set the `center_policy_coef` in `exp/atari_local.yml` to 0.
+To run EPPO-Ens, please set the `center_policy_coef` in `exp/atari_local.yml` to 0.
 
-To run EPPO-Ens, Please set the `diverse_coef` in `exp/atari_local.yml` to 0.
+To run EPPO-Div, please set the `diverse_coef` in `exp/atari_local.yml` to 0.
 
 ## Reference
 You are more than welcome to cite our paper:
